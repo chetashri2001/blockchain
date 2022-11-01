@@ -8,19 +8,13 @@ contract CreditLimit {
     uint food_cost;
     uint stay_cost;
 
-    function set_travel_cost (uint cost) public {
-        travel_cost = cost;
+    function setvalues (uint travelcost, uint foodcost, uint staycost) public {
+        travel_cost = travelcost;
+        food_cost = foodcost;
+        stay_cost = staycost;
     }
 
-    function set_food_cost (uint cost) public {
-        food_cost = cost;
-    }
-    
-    function set_stay_cost (uint cost) public {
-        stay_cost = cost;
-    }
-
-    function get_remaining_balance() public {
+    function get_remaining_balance() public view returns (uint){
         return card_limit - (travel_cost + food_cost + stay_cost);
     }
 }
